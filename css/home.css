@@ -369,6 +369,7 @@
 /* ---------- Crew dog tags ---------- */
 .tags {
   display: grid;
+  grid-auto-rows: 1fr; /* every tag matches the tallest, whatever wraps */
   gap: var(--space-6);
   list-style: none;
 }
