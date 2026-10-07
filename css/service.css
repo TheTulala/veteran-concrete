@@ -253,6 +253,10 @@
   color: var(--mist);
 }
 
+.section--red.final-cta p {
+  color: var(--paper);
+}
+
 .final-cta .btn-row {
   justify-content: center;
 }

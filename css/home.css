@@ -483,6 +483,15 @@
   text-underline-offset: 0.2em;
 }
 
+.section--red .estimate__copy .lead,
+.section--red .contact-list__label {
+  color: var(--paper);
+}
+
+.section--red .contact-list li {
+  border-left-color: var(--ink);
+}
+
 @media (width >= 64rem) {
   .estimate__grid {
     grid-template-columns: 1fr 1.25fr;
