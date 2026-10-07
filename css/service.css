@@ -1,0 +1,271 @@
+/* Service pages: hero, prose/split layouts, option cards, Vegas notes, final CTA, related services. */
+
+/* ---------- Service hero ---------- */
+.svc-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.svc-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -18%;
+  left: -10%;
+  z-index: -1;
+  width: min(60vw, 34rem);
+  aspect-ratio: 1;
+  background: var(--navy);
+  clip-path: var(--star);
+  opacity: 0.5;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+.svc-hero .breadcrumbs {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.svc-hero__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.svc-hero h1 {
+  margin-bottom: var(--space-5);
+  font-size: clamp(2.6rem, 5vw + 1.25rem, 5.5rem);
+}
+
+.svc-hero .lead {
+  margin-bottom: var(--space-6);
+  color: var(--mist);
+}
+
+.svc-photo {
+  position: relative;
+  margin: 0;
+  padding: 0.6rem;
+  background: var(--parchment);
+  box-shadow:
+    0 0 0 4px var(--ink),
+    0 0 0 7px var(--red),
+    0 2rem 3rem rgb(10 10 10 / 40%);
+  rotate: 1.5deg;
+}
+
+.svc-photo img {
+  width: 100%;
+  aspect-ratio: 19 / 12;
+  object-fit: cover;
+}
+
+.svc-photo figcaption {
+  padding: var(--space-3) var(--space-2) var(--space-1);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+@media (width >= 64rem) {
+  .svc-hero__grid {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+/* ---------- Prose + aside split ---------- */
+.split {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.split__main h2 {
+  margin-bottom: var(--space-5);
+}
+
+.split__main p {
+  color: var(--steel);
+}
+
+.split__main .lead {
+  color: var(--text);
+}
+
+.checklist {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.checklist li {
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  left: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: var(--red);
+  clip-path: var(--star);
+}
+
+.checklist strong {
+  display: block;
+}
+
+.aside-box {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 8px 8px 0 var(--slab);
+}
+
+.aside-box h3 {
+  margin-bottom: var(--space-5);
+}
+
+.aside-box .checklist {
+  color: var(--text);
+}
+
+.aside-box .checklist span {
+  color: var(--steel);
+}
+
+@media (width >= 64rem) {
+  .split {
+    grid-template-columns: 1.3fr 1fr;
+    align-items: start;
+  }
+}
+
+/* ---------- Option cards (non-link) ---------- */
+.options {
+  display: grid;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.option {
+  padding: var(--space-5);
+  border-top: 6px solid var(--red);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.option h3 {
+  margin-bottom: var(--space-3);
+  font-size: clamp(1.4rem, 1vw + 1.1rem, 1.75rem);
+}
+
+.option p {
+  color: var(--mist);
+}
+
+@media (width >= 40rem) {
+  .options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 64rem) {
+  .options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Las Vegas notes (on navy) ---------- */
+.vegas {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.vegas li {
+  padding: var(--space-5);
+  border: 2px solid var(--line-dark);
+  background: var(--navy-2);
+}
+
+.vegas h3 {
+  margin-bottom: var(--space-3);
+  font-size: clamp(1.4rem, 1vw + 1.1rem, 1.75rem);
+  color: var(--paper);
+}
+
+.vegas p {
+  color: var(--mist);
+}
+
+@media (width >= 56rem) {
+  .vegas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Proof strip ---------- */
+.proof {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.proof .review {
+  height: auto;
+}
+
+.proof__copy h2 {
+  margin-bottom: var(--space-5);
+}
+
+.proof__copy p {
+  color: var(--mist);
+}
+
+.proof__copy .btn {
+  margin-top: var(--space-6);
+}
+
+@media (width >= 64rem) {
+  .proof {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Final CTA ---------- */
+.final-cta {
+  text-align: center;
+}
+
+.final-cta h2 {
+  max-width: 18ch;
+  margin: 0 auto var(--space-5);
+}
+
+.final-cta p {
+  margin: 0 auto var(--space-6);
+  color: var(--mist);
+}
+
+.final-cta .btn-row {
+  justify-content: center;
+}
+
+/* ---------- Related services ---------- */
+.related-grid {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+@media (width >= 48rem) {
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

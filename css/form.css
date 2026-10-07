@@ -1,0 +1,171 @@
+/* Estimate form (homepage #estimate). Light panel on the dark section. */
+.estimate__panel {
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  background: var(--paper);
+  color: var(--text);
+  border-top: 10px solid transparent;
+  border-image: var(--flag-rule) 1;
+  border-image-width: 10px 0 0;
+}
+
+.estimate__panel :focus-visible {
+  outline-color: var(--red);
+}
+
+.form {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.form[hidden] {
+  display: none;
+}
+
+.form__row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (width >= 40rem) {
+  .form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.form-field label {
+  font-weight: 700;
+}
+
+.form-field label span[aria-hidden="true"] {
+  color: var(--red);
+}
+
+.form-field__optional {
+  font-weight: 500;
+  color: var(--steel);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0.7rem 0.85rem;
+  border: 2px solid var(--steel);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--text);
+  font-size: 1.0625rem;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.form-field select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text) 50%),
+    linear-gradient(135deg, var(--text) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.25rem) 50%,
+    calc(100% - 0.85rem) 50%;
+  background-size: 0.4rem 0.4rem;
+  background-repeat: no-repeat;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  border-color: var(--navy);
+  outline: 3px solid var(--red);
+  outline-offset: 1px;
+}
+
+.form-field [aria-invalid="true"] {
+  border-color: var(--red);
+  border-width: 3px;
+}
+
+.form-field__error {
+  display: none;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--red);
+}
+
+.form-field__error.is-visible {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.form-field__error.is-visible::before {
+  content: "!";
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-top: 0.15rem;
+  background: var(--red);
+  color: var(--paper);
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.form__note {
+  font-size: var(--fs-xs);
+  color: var(--steel);
+}
+
+.form__submit {
+  width: 100%;
+  min-height: 3.75rem;
+  font-size: 1.5rem;
+}
+
+.form__submit:disabled {
+  cursor: progress;
+  opacity: 0.75;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status {
+  padding: var(--space-4);
+  border-left: 6px solid var(--red);
+  background: var(--slab);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-thankyou {
+  padding: var(--space-5) 0;
+}
+
+.form-thankyou h3 {
+  margin-bottom: var(--space-4);
+  color: var(--text);
+}
+
+.form-thankyou a {
+  font-weight: 700;
+  color: var(--red);
+}
+
+.form-thankyou:focus {
+  outline: none;
+}
+
+.form-thankyou:focus-visible {
+  outline: 3px solid var(--red);
+}
