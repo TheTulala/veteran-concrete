@@ -4,6 +4,7 @@
   /* Color */
   --black: #0a0a0a; /* matches the logo's black field; header, menu, footer */
   --ink: #0e1630;
+  --star-blue: #16244f; /* hero background star only */
   --red: #a33424;
   --red-deep: #842819; /* hover shade of --red only, never text */
   --parchment: #d6cdb8;

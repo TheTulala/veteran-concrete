@@ -13,9 +13,9 @@
   right: -12vw;
   width: min(70vw, 52rem);
   aspect-ratio: 1;
-  background: var(--black);
+  background: var(--star-blue);
   clip-path: var(--star);
-  opacity: 0.45;
+  opacity: 0.55;
   transform: translateY(-50%) rotate(-8deg);
   pointer-events: none;
 }

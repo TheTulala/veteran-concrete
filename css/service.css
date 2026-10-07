@@ -15,9 +15,9 @@
   z-index: -1;
   width: min(60vw, 34rem);
   aspect-ratio: 1;
-  background: var(--black);
+  background: var(--star-blue);
   clip-path: var(--star);
-  opacity: 0.45;
+  opacity: 0.5;
   transform: rotate(12deg);
   pointer-events: none;
 }
