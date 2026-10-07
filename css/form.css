@@ -84,7 +84,7 @@
 .form-field input:focus-visible,
 .form-field select:focus-visible,
 .form-field textarea:focus-visible {
-  border-color: var(--navy);
+  border-color: var(--ink);
   outline: 3px solid var(--red);
   outline-offset: 1px;
 }

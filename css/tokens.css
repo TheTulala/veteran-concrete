@@ -4,8 +4,6 @@
   /* Color */
   --black: #0a0a0a; /* matches the logo's black field; header, menu, footer */
   --ink: #0e1630;
-  --navy: #16244f;
-  --navy-2: #1e3163;
   --red: #a33424;
   --red-deep: #842819; /* hover shade of --red only, never text */
   --parchment: #d6cdb8;
@@ -15,7 +13,7 @@
   --text: #1b1f2a;
   --mist: #cdd3e1;
   --line-light: #c7c3b8;
-  --line-dark: #34467a;
+  --line-dark: rgb(214 205 184 / 24%);
 
   /* Type */
   --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
@@ -48,7 +46,7 @@
   /* Shape */
   --radius: 0;
   --radius-tag: 1.1rem;
-  --flag-rule: linear-gradient(to bottom, var(--red) 0 38%, var(--parchment) 38% 62%, var(--navy) 62% 100%);
+  --flag-rule: linear-gradient(to bottom, var(--red) 0 38%, var(--parchment) 38% 62%, var(--ink) 62% 100%);
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .84 0 0 0 0 .8 0 0 0 0 .72 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   --star: polygon(50% 0%, 61.8% 35.4%, 100% 35.4%, 69.1% 57.3%, 80.9% 92.7%, 50% 70.8%, 19.1% 92.7%, 30.9% 57.3%, 0% 35.4%, 38.2% 35.4%);
 

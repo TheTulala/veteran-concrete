@@ -15,9 +15,9 @@
   z-index: -1;
   width: min(60vw, 34rem);
   aspect-ratio: 1;
-  background: var(--navy);
+  background: var(--black);
   clip-path: var(--star);
-  opacity: 0.5;
+  opacity: 0.45;
   transform: rotate(12deg);
   pointer-events: none;
 }
@@ -180,7 +180,7 @@
   }
 }
 
-/* ---------- Las Vegas notes (on navy) ---------- */
+/* ---------- Las Vegas notes (on ink) ---------- */
 .vegas {
   display: grid;
   gap: var(--space-5);
@@ -190,7 +190,7 @@
 .vegas li {
   padding: var(--space-5);
   border: 2px solid var(--line-dark);
-  background: var(--navy-2);
+  background: transparent;
 }
 
 .vegas h3 {

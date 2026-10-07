@@ -13,9 +13,9 @@
   right: -12vw;
   width: min(70vw, 52rem);
   aspect-ratio: 1;
-  background: var(--navy);
+  background: var(--black);
   clip-path: var(--star);
-  opacity: 0.55;
+  opacity: 0.45;
   transform: translateY(-50%) rotate(-8deg);
   pointer-events: none;
 }
@@ -416,7 +416,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--ink);
 }
 
 .tag__line {

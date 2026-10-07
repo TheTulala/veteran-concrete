@@ -132,8 +132,8 @@
 }
 
 .review--feature {
-  border-color: var(--navy);
-  background: var(--navy);
+  border-color: var(--ink);
+  background: var(--ink);
   color: var(--paper);
 }
 
