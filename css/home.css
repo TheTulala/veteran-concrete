@@ -110,17 +110,6 @@
   line-height: 1.35;
 }
 
-.record__note {
-  margin-top: var(--space-4);
-  font-size: var(--fs-xs);
-  line-height: 1.5;
-}
-
-.record__note a {
-  font-weight: 700;
-  color: var(--text);
-}
-
 /* ---------- Problem / risks ---------- */
 .risk-grid {
   display: grid;
