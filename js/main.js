@@ -32,6 +32,36 @@
     });
   }
 
+  // Services dropdown: a disclosure button. Escape and outside clicks close it.
+  const subToggle = document.querySelector(".nav-sub__toggle");
+
+  if (subToggle) {
+    const setSubOpen = (open) => subToggle.setAttribute("aria-expanded", String(open));
+
+    subToggle.addEventListener("click", () => {
+      setSubOpen(subToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    // Capture phase, so Escape closes the dropdown before the mobile menu handler closes the whole menu.
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Escape" && subToggle.getAttribute("aria-expanded") === "true") {
+          event.stopPropagation();
+          setSubOpen(false);
+          subToggle.focus();
+        }
+      },
+      true
+    );
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".nav-sub")) {
+        setSubOpen(false);
+      }
+    });
+  }
+
   const revealEls = document.querySelectorAll("[data-reveal]");
 
   if ("IntersectionObserver" in window && revealEls.length) {

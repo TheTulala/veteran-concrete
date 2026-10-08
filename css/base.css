@@ -553,6 +553,53 @@ strong {
   }
 }
 
+/* ---------- Services dropdown (mobile: inline disclosure) ---------- */
+.nav-sub__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4) 0;
+  border: 0;
+  border-bottom: 1px solid #26262a;
+  background: none;
+  color: inherit;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.nav-sub__caret {
+  width: 0.55em;
+  height: 0.55em;
+  border-right: 3px solid var(--red);
+  border-bottom: 3px solid var(--red);
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform 0.2s var(--ease);
+}
+
+.nav-sub__toggle[aria-expanded="true"] .nav-sub__caret {
+  transform: translateY(15%) rotate(-135deg);
+}
+
+.primary-nav .nav-sub__menu {
+  display: none;
+  padding: 0 0 0 var(--space-5);
+}
+
+.nav-sub__toggle[aria-expanded="true"] + .nav-sub__menu {
+  display: grid;
+}
+
+.primary-nav .nav-sub__menu a {
+  font-size: 1.35rem;
+}
+
 @media (width >= 64rem) {
   .site-header__inner {
     min-height: 5.75rem;
@@ -587,6 +634,7 @@ strong {
     padding: var(--space-2) 0;
     border: 0;
     font-size: 1.2rem;
+    white-space: nowrap;
   }
 
   .primary-nav a::after {
@@ -614,6 +662,81 @@ strong {
 
   .header-actions {
     order: 3;
+  }
+
+  .primary-nav > ul {
+    align-items: center;
+  }
+
+  .nav-sub {
+    position: relative;
+  }
+
+  .nav-sub__toggle {
+    position: relative;
+    width: auto;
+    padding: var(--space-2) 0;
+    border: 0;
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  .nav-sub__toggle::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s var(--ease);
+  }
+
+  .nav-sub__toggle:hover::after,
+  .nav-sub__toggle.is-current::after,
+  .nav-sub__toggle[aria-expanded="true"]::after {
+    transform: scaleX(1);
+  }
+
+  .primary-nav .nav-sub__menu {
+    position: absolute;
+    top: 100%;
+    left: calc(-1 * var(--space-4));
+    z-index: 10;
+    gap: 0;
+    min-width: 15rem;
+    padding: var(--space-2) 0;
+    border-top: 3px solid var(--red);
+    background: var(--black);
+    box-shadow: 0 1.5rem 2rem rgb(10 10 10 / 45%);
+  }
+
+  .nav-sub__toggle[aria-expanded="true"] + .nav-sub__menu {
+    display: grid;
+  }
+
+  .primary-nav .nav-sub__menu a {
+    padding: var(--space-3) var(--space-4);
+    font-size: 1.15rem;
+  }
+
+  .primary-nav .nav-sub__menu a::after {
+    display: none;
+  }
+
+  .primary-nav .nav-sub__menu a:hover,
+  .primary-nav .nav-sub__menu a[aria-current="page"] {
+    background: var(--ink);
+    box-shadow: inset 4px 0 0 var(--red);
+  }
+}
+
+/* Mouse users get the dropdown on hover too; the button still toggles it for touch and keyboard. */
+@media (width >= 64rem) and (hover: hover) {
+  .nav-sub:hover .nav-sub__menu {
+    display: grid;
   }
 }
 
@@ -890,6 +1013,7 @@ strong {
   font-style: normal;
   display: grid;
   gap: var(--space-2);
+  overflow-wrap: anywhere;
 }
 
 .license-plate {
@@ -947,9 +1071,24 @@ strong {
   margin-top: 0;
 }
 
-@media (width >= 48rem) {
+@media (width >= 40rem) {
   .site-footer__grid {
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .site-footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (width >= 64rem) {
+  .site-footer__grid {
+    grid-template-columns: 1.4fr 1fr 1.1fr 0.9fr 1.5fr;
+    gap: var(--space-6);
+  }
+
+  .site-footer__brand {
+    grid-column: auto;
   }
 }
 

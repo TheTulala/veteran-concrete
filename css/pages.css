@@ -1,0 +1,412 @@
+/* About, Contact, and Service Area pages. Loads after components.css and service.css.
+   Plate, dog tag, motto, and contact-list rules mirror home.css so home.css stays homepage-only. */
+
+/* ---------- Riveted parchment plate ---------- */
+.plate {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background:
+    radial-gradient(circle at 1rem 1rem, #9e9784 0 0.3rem, transparent 0.35rem),
+    radial-gradient(circle at calc(100% - 1rem) 1rem, #9e9784 0 0.3rem, transparent 0.35rem),
+    radial-gradient(circle at 1rem calc(100% - 1rem), #9e9784 0 0.3rem, transparent 0.35rem),
+    radial-gradient(circle at calc(100% - 1rem) calc(100% - 1rem), #9e9784 0 0.3rem, transparent 0.35rem),
+    linear-gradient(160deg, #e2dac6, var(--parchment) 55%, #cbc1a9);
+  color: var(--text);
+  box-shadow:
+    0 0 0 6px var(--ink),
+    0 0 0 9px var(--red),
+    0 2rem 3rem rgb(10 10 10 / 40%);
+}
+
+.plate :focus-visible {
+  outline-color: var(--red);
+}
+
+.plate__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-bottom: 3px solid var(--text);
+}
+
+.plate__title {
+  font-size: clamp(1.75rem, 2vw + 1rem, 2.25rem);
+}
+
+.plate__stars {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.plate__stars::before,
+.plate__stars::after {
+  content: "";
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--red);
+  clip-path: var(--star);
+}
+
+.plate__note {
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--steel);
+}
+
+.plate__note a {
+  font-weight: 700;
+  color: var(--text);
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+/* Definition rows inside a plate (About hero) */
+.record__list > div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-bottom: 1px dashed #8f8874;
+}
+
+.record__list dt {
+  padding-top: 0.15rem;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.record__list dd {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Starred job list inside a plate (location heroes) */
+.job-list {
+  display: grid;
+  list-style: none;
+}
+
+.job-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-bottom: 1px dashed #8f8874;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.job-list li::before {
+  content: "";
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--red);
+  clip-path: var(--star);
+}
+
+/* Hero with a plate instead of a photo */
+.svc-hero .plate {
+  margin: 9px;
+}
+
+/* Review strip on a light section (breaks up back-to-back dark rows) */
+.on-light .proof__copy p:not(.eyebrow) {
+  color: var(--steel);
+}
+
+.on-light .proof__copy .eyebrow {
+  color: var(--red);
+}
+
+/* ---------- Service area cards (link grid) ---------- */
+.area-grid {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.area-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  border-top: 10px solid transparent;
+  border-image: var(--flag-rule) 1;
+  border-image-width: 10px 0 0;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  box-shadow: 0 0 0 0 var(--red);
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.area-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 0 0 var(--red);
+}
+
+.area-card__county {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--parchment);
+}
+
+.area-card__county::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--red);
+  clip-path: var(--star);
+}
+
+.area-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.area-card__text {
+  flex: 1;
+  color: var(--mist);
+}
+
+.area-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: 700;
+}
+
+.area-card__more::after {
+  content: "\2192";
+  transition: transform 0.2s var(--ease);
+}
+
+.area-card:hover .area-card__more::after {
+  transform: translateX(4px);
+}
+
+@media (width >= 40rem) {
+  .area-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 64rem) {
+  .area-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Values motto (About) ---------- */
+.why {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.why__head h2 {
+  margin-bottom: var(--space-6);
+}
+
+.why__head > p:not(.eyebrow) {
+  font-size: var(--fs-lg);
+  color: var(--steel);
+}
+
+.motto {
+  margin: var(--space-6) 0 0;
+  padding: var(--space-5) var(--space-5) var(--space-5) var(--space-6);
+  border-left: 8px solid var(--red);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.motto p {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 2.5vw + 1rem, 2.75rem);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.motto footer {
+  margin-top: var(--space-3);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+
+@media (width >= 64rem) {
+  .why {
+    grid-template-columns: 1fr 1.15fr;
+    align-items: start;
+  }
+
+  .why__head {
+    position: sticky;
+    top: 8rem;
+  }
+}
+
+/* ---------- Crew dog tags (About) ---------- */
+.tags {
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.tag {
+  position: relative;
+  padding: 2rem 1.75rem 1.75rem 4.25rem;
+  border-radius: var(--radius-tag);
+  background: linear-gradient(140deg, #ece6d8 0%, var(--parchment) 40%, #b9b09a 100%);
+  color: var(--text);
+  box-shadow:
+    inset 0 0 0 3px #ece6d8,
+    inset 0 0 0 5px #a49c86,
+    0 1.25rem 2rem rgb(10 10 10 / 45%);
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1.6rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: inset 0 2px 3px rgb(10 10 10 / 60%), 0 0 0 2px #a49c86;
+  transform: translateY(-50%);
+}
+
+.tag:nth-child(odd) {
+  rotate: -1.25deg;
+}
+
+.tag:nth-child(even) {
+  rotate: 1deg;
+}
+
+.tag__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.5vw + 1.25rem, 2.25rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgb(245 242 234 / 70%);
+}
+
+.tag p + p {
+  margin-top: var(--space-2);
+}
+
+.tag__role {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.tag__line {
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+}
+
+@media (width >= 56rem) {
+  .tags {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Contact hero: copy + form ---------- */
+.contact-hero {
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3.5rem, 8vw, 6.5rem);
+}
+
+.contact-hero .breadcrumbs {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.contact-hero h1 {
+  margin-bottom: var(--space-5);
+  font-size: clamp(2.6rem, 5vw + 1.25rem, 5rem);
+}
+
+.estimate__grid {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+
+.estimate__copy .lead {
+  color: var(--mist);
+}
+
+.contact-list {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+  list-style: none;
+}
+
+.contact-list li {
+  display: grid;
+  gap: 0.1rem;
+  padding-left: var(--space-4);
+  border-left: 4px solid var(--red);
+}
+
+.contact-list__label {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--parchment);
+}
+
+.contact-list a {
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  overflow-wrap: anywhere;
+  text-underline-offset: 0.2em;
+}
+
+.contact-list__sub {
+  font-size: var(--fs-sm);
+  color: var(--mist);
+}
+
+.contact-list li .contact-list__sub a {
+  font-size: var(--fs-sm);
+}
+
+@media (width >= 64rem) {
+  .estimate__grid {
+    grid-template-columns: 1fr 1.25fr;
+    align-items: start;
+  }
+}
